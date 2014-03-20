@@ -54,6 +54,8 @@ public class AgendaTelefonicaController
 				case 4:
 					pesquisar();
 					break;
+					default:
+						continue;
 			}
 		} while (opcao != 0);
 		
