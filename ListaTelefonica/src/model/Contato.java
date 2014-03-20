@@ -16,8 +16,8 @@ public class Contato implements Comparable<Contato>
 	
 	/**
 	 * Constroi um contato.
-	 * @param nome - nome do contato.
-	 * @param telefone - telefone do contato.
+	 * @param nome Nome do contato.
+	 * @param telefone Telefone do contato.
 	 */
 	public Contato(String nome, String telefone)
 	{
@@ -36,7 +36,7 @@ public class Contato implements Comparable<Contato>
 	
 	/**
 	 * Substitui o nome do contato.
-	 * @param nome - o novo nome do contato.
+	 * @param nome O novo nome do contato.
 	 */
 	public void setNome(String nome)
 	{
@@ -54,7 +54,7 @@ public class Contato implements Comparable<Contato>
 	
 	/**
 	 * Substitui o telefone do contato.
-	 * @param telefone - o novo telefone do contato.
+	 * @param telefone O novo telefone do contato.
 	 */
 	public void setTelefone(String telefone)
 	{
@@ -63,7 +63,7 @@ public class Contato implements Comparable<Contato>
 	
 	/**
 	 * Compara este contato com um outro contato, atraves dos nomes de ambos, para fins de ordenacao.
-	 * @param contato - o contato com o qual este contato sera comparado.
+	 * @param contato O contato com o qual este contato sera comparado.
 	 * @return Um Integer como resultado da comparacao.
 	 * Se os nome de ambos os contatos forem iguais, retorna 0.
 	 * Se o nome desta contato precede o nome do contato passado pelo parametro, retorna um Integer negativo,

@@ -14,7 +14,7 @@ public class ListaContatosOrdenada extends ListaOrdenada<Contato>
 	
 	/**
 	 * Insere um contato na lista de contatos ordenada.
-	 * @param novo
+	 * @param novo Contato que sera inserido na lista.
 	 */
 	public void insert(Contato novo)
 	{

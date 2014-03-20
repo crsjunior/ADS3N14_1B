@@ -25,7 +25,7 @@ public class ListaEncadeada<T extends Comparable<T>>
 	
 	/**
 	 * Insere um nodo no inicio da lista encadeada.
-	 * @param novo - nodo que sera inserido na lista.
+	 * @param novo Nodo que sera inserido na lista.
 	 */
 	protected void insert(Nodo<T> novo)
 	{
@@ -39,8 +39,8 @@ public class ListaEncadeada<T extends Comparable<T>>
 	
 	/**
 	 * Insere um nodo em uma posicao especifica da lista encadeada.
-	 * @param novo - nodo que sera inserido na lista.
-	 * @param anterior - nodo apos o qual sera inserido o novo nodo.
+	 * @param novo Nodo que sera inserido na lista.
+	 * @param anterior Nodo apos o qual sera inserido o novo nodo.
 	 */
 	protected void insert(Nodo<T> novo, Nodo<T> anterior)
 	{
@@ -56,7 +56,7 @@ public class ListaEncadeada<T extends Comparable<T>>
 	
 	/**
 	 * Insere um nodo no final da lista encadeada.
-	 * @param novo - nodo que sera inserido na lista.
+	 * @param novo Nodo que sera inserido na lista.
 	 */
 	protected void append(Nodo<T> novo)
 	{

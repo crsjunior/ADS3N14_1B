@@ -44,7 +44,7 @@ public class ListaOrdenada<T extends Comparable<T>>
 	
 	/**
 	 * Insere um nodo na lista ordenada.
-	 * @param novo - nodo que sera inserido na lista.
+	 * @param novo Nodo que sera inserido na lista.
 	 */
 	public void insert(Nodo<T> novo)
 	{

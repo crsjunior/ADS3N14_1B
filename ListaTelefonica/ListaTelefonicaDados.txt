@@ -4,3 +4,5 @@ Seu Carlos;92595053
 Marco Minussi;45678
 Romario;5554075
 Claudia;33707489
+Aline;1234567
+Zé;1234567

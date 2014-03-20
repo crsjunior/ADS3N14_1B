@@ -120,8 +120,8 @@ public class AgendaTelefonicaController
 	
 	/**
 	 * Exibe um contato.
-	 * @param view - Em qual view exibir o contato.
-	 * @param contato - Conato a ser exibido.
+	 * @param view Em qual view exibir o contato.
+	 * @param contato Conato a ser exibido.
 	 */
 	private void exibirContato(ContatoView view, Contato contato)
 	{
@@ -190,7 +190,7 @@ public class AgendaTelefonicaController
 			
 			gravarArq.close();
 		} catch (IOException ex) {
-			System.err.println("Erro na gravacaos de arquivo.\n" + ex.getMessage());
+			System.err.println("Erro na gravacao de arquivo.\n" + ex.getMessage());
 		}
 	}
 	

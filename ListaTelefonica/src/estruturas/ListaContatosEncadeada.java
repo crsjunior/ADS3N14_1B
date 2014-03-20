@@ -35,7 +35,7 @@ public class ListaContatosEncadeada extends ListaEncadeada<Contato>
 	
 	/**
 	 * Insere um contato no inicio da lista de contatos encadeada.
-	 * @param novo - contato que sera inserido na lista.
+	 * @param novo Contato que sera inserido na lista.
 	 */
 	public void insert(Contato novo)
 	{
@@ -44,8 +44,8 @@ public class ListaContatosEncadeada extends ListaEncadeada<Contato>
 	
 	/**
 	 * Insere um contato em uma posicao especifica da lista de contatos encadeada.
-	 * @param novo - contato que sera inserido na lista.
-	 * @param anterior - contato apos o qual sera inserido o novo contato.
+	 * @param novo Contato que sera inserido na lista.
+	 * @param anterior Contato apos o qual sera inserido o novo contato.
 	 */
 	public void insert(Contato novo, Contato anterior)
 	{
@@ -55,7 +55,7 @@ public class ListaContatosEncadeada extends ListaEncadeada<Contato>
 	
 	/**
 	 * Insere um contato no final da lista de contatos encadeada.
-	 * @param novo - contato que sera inserido na lista.
+	 * @param novo Contato que sera inserido na lista.
 	 */
 	public void append(Contato novo)
 	{

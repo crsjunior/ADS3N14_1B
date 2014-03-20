@@ -16,7 +16,7 @@ public class Nodo<T extends Comparable<T>> implements Comparable<Nodo<T>>
 	
 	/**
 	 * Constroi um nodo com o dado especificado.
-	 * @param data - o dado do nodo.
+	 * @param data O dado do nodo.
 	 */
 	public Nodo(T data)
 	{
@@ -35,7 +35,7 @@ public class Nodo<T extends Comparable<T>> implements Comparable<Nodo<T>>
 	
 	/**
 	 * Substitui o dado do nodo.
-	 * @param data - o novo dado do nodo.
+	 * @param data O novo dado do nodo.
 	 */
 	public void setData(T data)
 	{
@@ -53,7 +53,7 @@ public class Nodo<T extends Comparable<T>> implements Comparable<Nodo<T>>
 	
 	/**
 	 * Substitui o proximo nodo do encadeamento.
-	 * @param next - o proximo nodo do encadeamento.
+	 * @param next O proximo nodo do encadeamento.
 	 */
 	public void setNext(Nodo<T> next)
 	{
