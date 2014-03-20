@@ -57,7 +57,7 @@ public class AgendaTelefonicaController
 			}
 		} while (opcao != 0);
 		
-		AgendaTelefonicaController.salvarDador();
+		AgendaTelefonicaController.salvarDados();
 	}
 	
 	/**
@@ -171,7 +171,7 @@ public class AgendaTelefonicaController
 	/**
 	 * Salva os dados da lista de contatos encadeada no arquivo de dados.
 	 */
-	private static void salvarDador()
+	private static void salvarDados()
 	{
 		if (!verificaArqDados()) {
 			return;
