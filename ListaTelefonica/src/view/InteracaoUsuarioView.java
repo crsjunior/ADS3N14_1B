@@ -12,7 +12,7 @@ public class InteracaoUsuarioView
 	
 	/**
 	 * Exibe o menu de opcoes principal da agenda telefonica e retorna um Integer correspondente a entrada do usuario.
-	 * @return 0-sair, 1-novo, 2-listar, 3-pesquisar.
+	 * @return 0-sair, 1-novo, 2-listar, 3-listar em ordem, 4-pesquisar.
 	 */
 	public int menuPrincipal()
 	{
