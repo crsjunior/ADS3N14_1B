@@ -12,7 +12,7 @@ public class InteracaoUsuarioView
 	
 	/**
 	 * Exibe o menu de opcoes principal da agenda telefonica e retorna um Integer correspondente a entrada do usuario.
-	 * @return 0-sair, 1-novo, 2-listar, 3-listar em ordem, 4-pesquisar.
+	 * @return 0-sair, 1-novo, 2-listar, 3-listar em ordem, 4-pesquisar, 5-pesquisar (pesquisa binaria).
 	 */
 	public int menuPrincipal()
 	{
@@ -23,11 +23,16 @@ public class InteracaoUsuarioView
 			out.println();
 			out.println("------------------------------------------------------------------");
 			out.println("      MENU DA LISTA TELEFONICA");
-			out.println("   1 - Novo | 2 - Listar | 3 - Listar em ordem | 4 - Pesquisar | 0 - Sair");
+			out.println("   1 - Novo");
+			out.println("   2 - Listar");
+			out.println("   3 - Listar em ordem");
+			out.println("   4 - Pesquisar");
+			out.println("   5 - Pesquisar (pessquisa binaria)");
+			out.println("   0 - Sair");
 			out.print("Sua opcao: ");
 			opcao = scanner.nextInt();
 			
-			if (opcao < 0 || opcao > 4) {
+			if (opcao < 0 || opcao > 5) {
 				out.println("   Opcao invalida. Por favor, tente novamente.");
 			} else {
 				return opcao;

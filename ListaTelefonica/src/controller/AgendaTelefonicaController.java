@@ -12,6 +12,7 @@ import view.InteracaoUsuarioView;
 import view.CompactContatoView;
 import view.ContatoView;
 import view.ExtendedContatoView;
+import view.MensageiroView;
 import estruturas.ListaContatosEncadeada;
 import estruturas.ListaContatosOrdenada;
 import estruturas.Nodo;
@@ -54,8 +55,11 @@ public class AgendaTelefonicaController
 				case 4:
 					pesquisar();
 					break;
-					default:
-						continue;
+				case 5:
+					
+					break;
+				default:
+					continue;
 			}
 		} while (opcao != 0);
 		
@@ -118,6 +122,14 @@ public class AgendaTelefonicaController
 		} else {
 			System.out.println("Nenhum contato encontrado!");
 		}
+	}
+	
+	/**
+	 * Pesquisa por um contato especifico atraves de uma pesquisa binaria.
+	 */
+	public void pesquisarBinaria()
+	{
+		
 	}
 	
 	/**
