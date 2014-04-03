@@ -16,78 +16,102 @@ import view.TabuleiroView;
 
 public class JogoController
 {
-	private static final int DIMENSOES_TABULEIRO = 6;
+	private static final int[] DIMENSOES_TABULEIRO = new int[] { 7, 8, 10 };
 	private static final int PONTUACAO_POR_DISPARO = -1;
 	private static final int PONTUACAO_POR_ALVO_ATINGIDO = 3;
 	private static final int PONTUACAO_POR_ALVO_DESTRUIDO = 5;
 	
 	private Tabuleiro tabuleiro;
 	private TabuleiroView tabuleiroView;
+	private int nivelDificuldade;
 	private int pontuacao;
 	
 	public JogoController()
 	{
-		this.tabuleiro = new Tabuleiro(DIMENSOES_TABULEIRO, DIMENSOES_TABULEIRO);
-		this.tabuleiro.addEmbarcacaoPorSorteio(new PortaAvioes());
-		this.tabuleiro.addEmbarcacaoPorSorteio(new Destroyer());
-		this.tabuleiro.addEmbarcacaoPorSorteio(new Destroyer());
-		this.tabuleiro.addEmbarcacaoPorSorteio(new Fragata());
-		this.tabuleiro.addEmbarcacaoPorSorteio(new Fragata());
-		this.tabuleiro.addEmbarcacaoPorSorteio(new Torpedeiro());
-		this.tabuleiro.addEmbarcacaoPorSorteio(new Torpedeiro());
-		this.tabuleiro.addEmbarcacaoPorSorteio(new Torpedeiro());
-		this.tabuleiro.addEmbarcacaoPorSorteio(new Submarino());
-		this.tabuleiro.addEmbarcacaoPorSorteio(new Submarino());
-		this.tabuleiro.addEmbarcacaoPorSorteio(new Submarino());
-		this.tabuleiro.addEmbarcacaoPorSorteio(new Submarino());
-		this.tabuleiro.addEmbarcacaoPorSorteio(new Submarino());
-		this.tabuleiro.finalizarMontagemTabuleiro();
-		this.pontuacao = 15;
+		this.tabuleiro = null;
 		this.tabuleiroView = null;
-	}
-	
-	private void selecionarView()
-	{
-		String entrada;
-		do {
-			entrada = InteracaoUsuarioView.solicitarEntrada("Exibir grade no tabuleiro (1-Nao | 2-Sim): ");
-		} while (!entrada.equals("1") && !entrada.equals("2"));
-		if (entrada.equals("1")) {
-			this.tabuleiroView = new SimpleTabuleiroView();
-		} else {
-			this.tabuleiroView = new ComplexTabuleiroView();
-		}
+		this.nivelDificuldade = 0;
+		this.pontuacao = 15;
 	}
 	
 	public void iniciar()
 	{
-		selecionarView();
+		MensageiroView.imprimeLinha("ESCLARECIMENTO: A FUNCIONALIDADE ADICIONAL QUE DISPONIBILIZA DIFERENTES");
+		MensageiroView.imprimeLinha("   NIVEIS DE DIFICULDADE SOMENTE VISA EXPOR A FLEXIBILIDADE QUE ESTA");
+		MensageiroView.imprimeLinha("   FORMA DE IMPLEMENTACAO OFERECE!\n");
 		
+		solicitarDefinicoesJogo();
+		montarTabuleiro();
+		
+		String entrada;
 		Embarcacao embarcacao = null;
 		
-		tabuleiroView.print(this.tabuleiro);
-		MensageiroView.imprimeStatusJogo(this.pontuacao, tabuleiro.getQtdeEmbarcacoesRestantes());
+		tabuleiroView.print(tabuleiro);
+		MensageiroView.imprimeStatusJogo(pontuacao, tabuleiro.getQtdeEmbarcacoesRestantes());
 		
-		while (this.pontuacao > 0 && tabuleiro.getQtdeEmbarcacoesRestantes() > 0) {
-			embarcacao = disparar(InteracaoUsuarioView.solicitarEntrada("Alvo: "));
+		while (pontuacao > 0 && tabuleiro.getQtdeEmbarcacoesRestantes() > 0) {
+			entrada = InteracaoUsuarioView.solicitarEntrada("\nAlvo ('sair'): ");
+			if (entrada.toLowerCase().equals("sair")) {
+				break;
+			}
 			
-			tabuleiroView.print(this.tabuleiro);
+			embarcacao = disparar(entrada);
+			
+			tabuleiroView.print(tabuleiro);
 			if (embarcacao != null) {
-				MensageiroView.imprimeStatusJogo(this.pontuacao,
+				MensageiroView.imprimeStatusJogo(pontuacao,
 						tabuleiro.getQtdeEmbarcacoesRestantes(),
 						embarcacao.getNome());
 			} else {
-				MensageiroView.imprimeStatusJogo(this.pontuacao, tabuleiro.getQtdeEmbarcacoesRestantes());
+				MensageiroView.imprimeStatusJogo(pontuacao, tabuleiro.getQtdeEmbarcacoesRestantes());
 			}
 		}
 		
 		// verificando o resultado final do jogo:
 		MensageiroView.imprimeLinha();
-		if (this.pontuacao == 0) {
+		if (pontuacao == 0) {
 			MensageiroView.imprimeLinha("\tVOCE PERDEU !!!");
-		} else {
-			MensageiroView.imprimeLinha("\n\tVOCE VENCEU !!!  Pontuacao final: " + this.pontuacao);
+		} else if (tabuleiro.getQtdeEmbarcacoesRestantes() == 0) {
+			MensageiroView.imprimeLinha("\tVOCE VENCEU !!!  Pontuacao final: " + pontuacao);
 		}
+	}
+	
+	private void montarTabuleiro()
+	{
+		tabuleiro = new Tabuleiro(DIMENSOES_TABULEIRO[nivelDificuldade], DIMENSOES_TABULEIRO[nivelDificuldade]);
+		tabuleiro.addEmbarcacaoPorSorteio(new PortaAvioes());
+		tabuleiro.addEmbarcacaoPorSorteio(new Destroyer());
+		tabuleiro.addEmbarcacaoPorSorteio(new Destroyer());
+		tabuleiro.addEmbarcacaoPorSorteio(new Fragata());
+		tabuleiro.addEmbarcacaoPorSorteio(new Fragata());
+		tabuleiro.addEmbarcacaoPorSorteio(new Torpedeiro());
+		tabuleiro.addEmbarcacaoPorSorteio(new Torpedeiro());
+		tabuleiro.addEmbarcacaoPorSorteio(new Torpedeiro());
+		tabuleiro.addEmbarcacaoPorSorteio(new Submarino());
+		tabuleiro.addEmbarcacaoPorSorteio(new Submarino());
+		tabuleiro.addEmbarcacaoPorSorteio(new Submarino());
+		tabuleiro.addEmbarcacaoPorSorteio(new Submarino());
+		tabuleiro.addEmbarcacaoPorSorteio(new Submarino());
+		tabuleiro.finalizarMontagemTabuleiro();
+	}
+	
+	private void solicitarDefinicoesJogo()
+	{
+		String entrada;
+		
+		do {
+			entrada = InteracaoUsuarioView.solicitarEntrada("Exibir grade no tabuleiro (1-Nao | 2-Sim): ");
+		} while (!entrada.equals("1") && !entrada.equals("2"));
+		if (entrada.equals("1")) {
+			tabuleiroView = new SimpleTabuleiroView();
+		} else {
+			tabuleiroView = new ComplexTabuleiroView();
+		}
+		
+		do {
+			entrada = InteracaoUsuarioView.solicitarEntrada("Nivel de dificuldade (1-Facil | 2-Normal | 3-Dificil): ");
+		} while (entrada.length() != 1 || entrada.charAt(0) < 49 || entrada.charAt(0) > 51);
+		nivelDificuldade = Integer.parseInt(entrada) - 1;
 	}
 	
 	/**
@@ -108,7 +132,7 @@ public class JogoController
 		
 		// verificando se os characters dos numeros dos alvos correspondem ao tamanho do tabuleiro:
 		for (char c : arrCharAlvo) {
-			if ((int) c < 48 || (int) c >= (48 + DIMENSOES_TABULEIRO)) {
+			if ((int) c < 48 || (int) c >= (48 + DIMENSOES_TABULEIRO[nivelDificuldade])) {
 				return null;
 			}
 		}
@@ -123,15 +147,15 @@ public class JogoController
 		}
 		unidade.marcarAtingido();
 		
-		this.pontuacao += PONTUACAO_POR_DISPARO;
+		pontuacao += PONTUACAO_POR_DISPARO;
 		
 		if (unidade.getEmbarcacao() != null) {
 			if (unidade.getEmbarcacao().isDestruida()) {
 				tabuleiro.umaEmbarcacaoFoiDestruida();
-				this.pontuacao += PONTUACAO_POR_ALVO_DESTRUIDO;
+				pontuacao += PONTUACAO_POR_ALVO_DESTRUIDO;
 				return unidade.getEmbarcacao();
 			} else {
-				this.pontuacao += PONTUACAO_POR_ALVO_ATINGIDO;
+				pontuacao += PONTUACAO_POR_ALVO_ATINGIDO;
 			}
 		}
 		
