@@ -16,7 +16,7 @@ import view.TabuleiroView;
 
 public class JogoController
 {
-	private static final int DIMENSOES_TABULEIRO = 10;
+	private static final int DIMENSOES_TABULEIRO = 6;
 	private static final int PONTUACAO_POR_DISPARO = -1;
 	private static final int PONTUACAO_POR_ALVO_ATINGIDO = 3;
 	private static final int PONTUACAO_POR_ALVO_DESTRUIDO = 5;
@@ -65,10 +65,13 @@ public class JogoController
 		
 		Embarcacao embarcacao = null;
 		
+		tabuleiroView.print(this.tabuleiro);
+		MensageiroView.imprimeStatusJogo(this.pontuacao, tabuleiro.getQtdeEmbarcacoesRestantes());
+		
 		while (this.pontuacao > 0 && tabuleiro.getQtdeEmbarcacoesRestantes() > 0) {
-			// imprimeTabuleiro(new SimpleTabuleiroView());
-			tabuleiroView.print(this.tabuleiro);
+			embarcacao = disparar(InteracaoUsuarioView.solicitarEntrada("Alvo: "));
 			
+			tabuleiroView.print(this.tabuleiro);
 			if (embarcacao != null) {
 				MensageiroView.imprimeStatusJogo(this.pontuacao,
 						tabuleiro.getQtdeEmbarcacoesRestantes(),
@@ -76,8 +79,6 @@ public class JogoController
 			} else {
 				MensageiroView.imprimeStatusJogo(this.pontuacao, tabuleiro.getQtdeEmbarcacoesRestantes());
 			}
-			
-			embarcacao = disparar(InteracaoUsuarioView.solicitarEntrada("Alvo: "));
 		}
 		
 		// verificando o resultado final do jogo:
@@ -85,7 +86,7 @@ public class JogoController
 		if (this.pontuacao == 0) {
 			MensageiroView.imprimeLinha("\tVOCE PERDEU !!!");
 		} else {
-			MensageiroView.imprimeLinha("\tPARABENS !!!  Pontuacao final: " + this.pontuacao);
+			MensageiroView.imprimeLinha("\n\tVOCE VENCEU !!!  Pontuacao final: " + this.pontuacao);
 		}
 	}
 	
