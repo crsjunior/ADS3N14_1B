@@ -5,6 +5,9 @@ import model.Embarcacao;
 
 public class Torpedeiro extends Embarcacao
 {
+	/**
+	 * Cria uma embarcacao do tipo torpedeiro.
+	 */
 	public Torpedeiro()
 	{
 		super("Torpedeiro", 2);

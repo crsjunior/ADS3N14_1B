@@ -5,6 +5,9 @@ import model.Embarcacao;
 
 public class Submarino extends Embarcacao
 {
+	/**
+	 * Cria uma embarcacao do tipo submarino.
+	 */
 	public Submarino()
 	{
 		super("Submarino", 1);

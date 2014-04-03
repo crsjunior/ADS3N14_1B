@@ -5,6 +5,9 @@ import model.Embarcacao;
 
 public class PortaAvioes extends Embarcacao
 {
+	/**
+	 * Cria uma embarcacao do tipo porta avioes.
+	 */
 	public PortaAvioes()
 	{
 		super("Porta Avioes", 5);

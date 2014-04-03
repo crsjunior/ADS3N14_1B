@@ -26,6 +26,9 @@ public class JogoController
 	private int nivelDificuldade;
 	private int pontuacao;
 	
+	/**
+	 * Cria o controller do jogo batalha naval.
+	 */
 	public JogoController()
 	{
 		this.tabuleiro = null;
@@ -34,6 +37,9 @@ public class JogoController
 		this.pontuacao = 15;
 	}
 	
+	/**
+	 * Inicia o jogo de batalha naval.
+	 */
 	public void iniciar()
 	{
 		MensageiroView.imprimeLinha("ESCLARECIMENTO: A FUNCIONALIDADE ADICIONAL QUE DISPONIBILIZA DIFERENTES");
@@ -76,6 +82,9 @@ public class JogoController
 		}
 	}
 	
+	/**
+	 * Monta o tabuleiro para um novo jogo.
+	 */
 	private void montarTabuleiro()
 	{
 		tabuleiro = new Tabuleiro(DIMENSOES_TABULEIRO[nivelDificuldade], DIMENSOES_TABULEIRO[nivelDificuldade]);
@@ -95,6 +104,9 @@ public class JogoController
 		tabuleiro.finalizarMontagemTabuleiro();
 	}
 	
+	/**
+	 * Questiona o usuario algumas definicoes para o jogo.
+	 */
 	private void solicitarDefinicoesJogo()
 	{
 		String entrada;

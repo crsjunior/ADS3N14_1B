@@ -5,6 +5,9 @@ import model.Embarcacao;
 
 public class Destroyer extends Embarcacao
 {
+	/**
+	 * Cria uma embarcacao do tipo destroyer.
+	 */
 	public Destroyer()
 	{
 		super("Destroyer", 4);
