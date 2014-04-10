@@ -1,6 +1,4 @@
-package ordenacao.bubblesort;
-
-import ordenacao.SortOrderMode;
+package ordenacao;
 
 /*
  * COMO FUNCIONA:
