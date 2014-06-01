@@ -21,4 +21,10 @@ public class ArvoreBSP<T extends Comparable<T>> extends Arvore<T>
 
 		return atual;
 	}
+
+	@Override
+	public void delete(T elemento)
+	{
+		System.out.println("Remocao em Arvore BSP ainda nao implementado!");
+	}
 }

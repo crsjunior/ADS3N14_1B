@@ -90,6 +90,7 @@ public class ArvoreRB<T extends Comparable<T>> extends ArvoreAVL<T>
 			avo = rotaEsquerda(avo);
 	}
 
+	@Override
 	public void delete(T elemento)
 	{
 		Nodo<T> atual = raiz;

@@ -19,7 +19,7 @@ abstract public class Arvore<T extends Comparable<T>>
 
 	abstract public void insert(T elemento);
 
-	//abstract public void delete(T elemento);
+	abstract public void delete(T elemento);
 
 	public List<T> preOrder()
 	{

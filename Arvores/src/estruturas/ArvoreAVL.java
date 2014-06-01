@@ -35,6 +35,12 @@ public class ArvoreAVL<T extends Comparable<T>> extends ArvoreBSP<T>
 		return nodo;
 	}
 
+	@Override
+	public void delete(T elemento)
+	{
+		System.out.println("Remocao em Arvore AVL ainda nao implementado!");
+	}
+
 	protected Nodo<T> rotaDireita(Nodo<T> n)
 	{
 		Nodo<T> b = n.getEsquerda();
