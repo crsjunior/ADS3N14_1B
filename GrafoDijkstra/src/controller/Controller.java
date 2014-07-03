@@ -23,8 +23,8 @@ public class Controller
 
 		scanner.close();
 
-		Dijkstra d = new Dijkstra(grafo);
-		LinkedList<Vertice> caminho = d.executar(grafo.getVerticeById(origem), grafo.getVerticeById(destino));
+		Dijkstra dijkstra = new Dijkstra(grafo);
+		LinkedList<Vertice> caminho = dijkstra.executar(grafo.getVerticeById(origem), grafo.getVerticeById(destino));
 
 		System.out.println("");
 		if (caminho == null) {
